@@ -2,7 +2,6 @@ package com.example.learn.springcrud.controller;
 
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.example.learn.springcrud.data.MarvelCharacters;
 import com.example.learn.springcrud.service.MarvelCrudService;
 
@@ -60,7 +58,7 @@ public class MarvelCrudController {
 		
 		List<MarvelCharacters> allCharacters = service.findAll();
 		
-		if(allCharacters.size() < 1) {
+		if(allCharacters.isEmpty()) {
 			return ResponseEntity.status(HttpStatus.ACCEPTED).body("No Heros added yet");
 		}
 		
